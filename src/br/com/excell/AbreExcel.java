@@ -44,7 +44,7 @@ public class AbreExcel {
 						aluno.setNome(cell.getStringCellValue());
 						break;
 					case 1:
-						aluno.setRa(String.valueOf(cell.getNumericCellValue()));
+						aluno.setRa(String.valueOf(cell.getStringCellValue()));
 						break;
 					case 2:
 						aluno.setNota1(cell.getNumericCellValue());
