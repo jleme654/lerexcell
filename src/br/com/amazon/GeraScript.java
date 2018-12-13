@@ -36,7 +36,7 @@ public class GeraScript {
 				int count = 0;
 				while (cellIterator.hasNext()) {
 					count++;
-					System.out.print(count+"\t");
+			    //******		System.out.print(count+"\t");
 					aluno.setId(count);
 					Cell cell = cellIterator.next();
 					
@@ -90,11 +90,19 @@ public class GeraScript {
 	public static void main(String[] args) {
 		try {
 			listaClientes = loadLista();
-			for (ClienteVO vo : listaClientes) {
+			/*for (ClienteVO vo : listaClientes) {
 				System.out.println(vo);
-			}
+			}*/
+			geraScriptInsercao(listaClientes);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
+	}
+
+	private static void geraScriptInsercao(ArrayList<ClienteVO> listaClientes2) {
+		for (ClienteVO item : listaClientes2) {
+			System.out.println("INSERT INTO `cliente`(`id`, `nome`, `cnpjCpf`, `endereco`, `cidade`, `telefone`, `contato`, `email`, `vendedor`) VALUES (" + item.getId()+",'"+item.getNome()+"', '"+item.getCnpjCpf()+ "', '" +item.getEndereco() + "', '" + item.getCidade() + "', '" + item.getTelefone() + "', '" + item.getContato() + "', '" + item.getEmail() +"', '" + item.getVendedor() + "'); ");
+		}
+		
 	}
 }
